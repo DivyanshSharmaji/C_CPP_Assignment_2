@@ -1,0 +1,205 @@
+Assignment - 2 A Job Ready Bootcamp in C++, DSA and IOT MySirG
+
+Operators in C Language
+
+1. Write a program to print unit digit of a given number
+2. Write a program to print a given number without its last digit.
+3. Write a program to swap values of two int variables
+4. Write a program to swap values of two int variables without using a third variable.
+5. Write a program to input a three-digit number and display the sum of the digits.
+6. Write a program which takes a character as an input and displays its ASCII code.
+7. Write a program to find the position of first 1 in LSB.
+8. Write a program to check whether the given number is even or odd using a bitwise
+operator.
+9. Write a program to print size of an int, a float, a char and a double type variable
+10. Write a program to make the last digit of a number stored in a variable as zero.
+(Example - if x=2345 then make it x=2340)
+11. Write a program to input a number from the user and also input a digit. Append a
+digit in the number and print the resulting number. (Example - number=234 and
+digit=9 then the resulting number is 2349)
+12. Assume price of 1 USD is INR 76.23. Write a program to take the amount in INR and
+convert it into USD.
+13. Write a program to take a three-digit number from the user and rotate its digits by
+one position towards the right.
+
+Solutions: 
+
+Ans-1:  #include<stdio.h>
+
+        int main(){
+        
+            int x = 12345;
+            printf("%d",x%10);
+
+            return 0;
+        }
+
+Ans-2:  #include<stdio.h>
+
+        int main(){
+        
+            int x = 12345;
+            printf("%d",x/10);
+
+            return 0;
+        }
+
+Ans-3:  #include<stdio.h>
+
+        int main(){
+        
+            int x = 12,y = 10,z;
+            z = x;
+            x = y;
+            y = z;
+            printf("x = %d\ny = %d",x,y);
+
+            return 0;
+        }
+
+Ans-4:  #include<stdio.h>
+
+        int main(){
+        
+            int x = 12,y = 10;
+            x = (x+y)-(y=x);
+            printf("x = %d\ny = %d",x,y);
+
+            return 0;
+        }
+
+Ans-5:  #include<stdio.h>
+
+        int main(){
+        
+            int x,sum=0;
+            printf("Enter a three digit number: ");
+            scanf("%d",&x);
+            sum = sum + x%10;
+            x = x/10;
+            sum = sum + x%10;
+            x = x/10;
+            sum = sum + x%10;
+            x = x/10;
+            printf("Sum of its digits is: %d\n",sum);
+
+            return 0;
+        }
+
+Ans-6:  #include<stdio.h>
+
+        int main(){
+        
+            char ch;
+            printf("Enter a character: ");
+            scanf("%c",&ch);
+            printf("ASCII code: %d\n",ch);
+
+            return 0;
+        }
+
+Ans-7:  #include<stdio.h>
+
+        int main(){
+        
+            int x,p=1;
+            printf("Enter a number: ");
+            scanf("%d",&x);
+            while(x>0){
+                if((x%10)==1){
+                    printf("Position = %d from right most digit\n",p);
+                    break;
+                }
+                p++;
+                x = x/10;
+            }
+
+            return 0;
+        }
+
+Ans-8:  #include<stdio.h>
+
+        int main(){
+        
+            int num;
+            printf("Enter a number : ");
+            scanf("%d",&num);
+            if((num&1)==0){
+                printf("Even\n");
+            }
+            else{
+                printf("Odd");
+            }
+
+            return 0;
+        }
+
+Ans-9:  #include<stdio.h>
+
+        int main(){
+        
+            int i;
+            float x;
+            char ch;
+            double d;
+            printf("Sizeof int type variable: %d\n",sizeof(i));
+            printf("Sizeof float type variable: %d\n",sizeof(x));
+            printf("Sizeof char type variable: %d\n",sizeof(ch));
+            printf("Sizeof double type variable: %d\n",sizeof(d));
+
+            return 0;
+        }
+
+Ans-10: #include<stdio.h>
+
+        int main(){
+        
+            int x=2345;
+            x = x-(x%10);
+            printf("x = %d\n",x);
+
+            return 0;
+        }
+
+Ans-11: #include<stdio.h>
+
+        int main(){
+        
+            int x,d;
+            printf("Enter a number : ");
+            scanf("%d",&x);
+            printf("Enter a digit : ");
+            scanf("%d",&d);
+            x = x*10;
+            x = x+d;
+            printf("x = %d\n",x);            
+
+            return 0;
+        }
+
+Ans-12: #include<stdio.h>
+
+        int main(){
+        
+            float inr,usd;
+            printf("Enter the amount in INR: ");      
+            scanf("%f",&inr);
+            usd = inr/76.23;
+            printf("Amount in USD : %0.2f\n",usd);
+
+            return 0;
+        }
+
+Ans-13: #include<stdio.h>
+
+        int main(){
+        
+            int num,x;
+            printf("Enter a three digit number: ");
+            scanf("%d",&num);
+            x = num%10;
+            num = (100*x)+num/10;
+            printf("Number = %d\n",num);
+
+            return 0;
+        }
