@@ -102,16 +102,23 @@ Ans-7:  #include<stdio.h>
 
         int main(){
         
-            int x,p=1;
-            printf("Enter a number: ");
-            scanf("%d",&x);
-            while(x>0){
-                if((x%10)==1){
-                    printf("Position = %d from right most digit\n",p);
+            int num,result,count=0,flag=0;
+            printf("Enter the number: ");
+            scanf("%d",&num);
+            while(num!=0){
+                result  = num&1;
+                count++;
+                if(result==1){
+                    flag = 1;
                     break;
                 }
-                p++;
-                x = x/10;
+                num = num>>1;
+            }
+            if(flag){
+                printf("1 in LSB found at position number: %d\n",count);
+            }
+            else{
+                printf("1 is not present in the number.\n");
             }
 
             return 0;
